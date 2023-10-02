@@ -1,6 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import CarContext from '../context/CarContext';
 
 function Navbar() {
+    const context = useContext(CarContext);
+    const {search} = context;
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -32,8 +36,8 @@ function Navbar() {
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success" type="submit">Search</button>
+                        <input className="form-control me-2" type="search" placeholder="Search Model" aria-label="Search" />
+                        <button className="btn btn-outline-success"  >Search</button>
                     </form>
                 </div>
             </div>

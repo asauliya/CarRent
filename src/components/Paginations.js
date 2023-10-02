@@ -1,15 +1,17 @@
 import React, { useContext } from 'react';
 import CarContext from '../context/CarContext';
+import { useParams } from 'react-router-dom';
 
 const Pagination = () => {
+    let {pageNumber} = useParams();
     const pageNumbers = [];
     const context = useContext(CarContext)
-    const { currentPage, postsPerPage, totalPosts, paginate, setCurrentPage } = context;
+    const { postsPerPage, totalPosts, paginate, setCurrentPage } = context;
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+            // console.log(i)
         pageNumbers.push(i);
     }
-
     const handleClick = (number) =>{
         setCurrentPage(number)
         paginate(number)
@@ -19,15 +21,15 @@ const Pagination = () => {
             <ul className='pagination' style={{ justifyContent: "center" }}>
                 {pageNumbers.map(number => (
                     <li key={number} className='page-item'>
-                        {(number === currentPage)&&
-                            <a onClick={() => handleClick(number)} className='page-link active'>
+                        {(number === parseInt(pageNumber))&&
+                            <span onClick={() => handleClick(number)} className='page-link active'>
                                 {number}
-                            </a>
+                            </span>
                         }
-                        {(number !== currentPage)&&
-                            <a onClick={() => handleClick(number)} className='page-link'>
+                        {(number !==  parseInt(pageNumber))&&
+                            <span onClick={() => handleClick(number)} className='page-link'>
                                 {number}
-                            </a>
+                            </span>
                         }
                         
                     </li>
