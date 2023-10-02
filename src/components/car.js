@@ -1,17 +1,17 @@
 import React, { useContext } from 'react'
 import CarsItem from './carsItem';
 import Pagination from './Paginations';
-// import CarState from '../context/CarState';
+import CarContext from '../context/CarContext';
 
-function Car(props) {
-    // const context = useContext(CarState)
-    // const {posts} = context;
-    const data = props.data;
+function Car() {
+    const context = useContext(CarContext)
+    const {currentPosts} = context;
+    // console.log(currentPosts);
     return (
         <>
             <div className="container text-center">
                 <div className="row row-cols-2 row-cols-lg-3 g-lg-3">
-                    {data.map(item => {
+                    {currentPosts.map(item => {
                         return (
                             <div className="col p-3" key={item.model}>
                                 <CarsItem data={item} />
@@ -20,12 +20,7 @@ function Car(props) {
                     })}
                 </div>
             </div>
-            <Pagination
-                currentPage={props.currentPage}
-                postsPerPage={props.postsPerPage}
-                totalPosts={props.totalPosts}
-                paginate={props.paginate}
-            />
+            <Pagination/>
         </>
     )
 
