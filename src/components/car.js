@@ -17,11 +17,11 @@ function Car() {
     
     return (
         <>
-            <div className="container text-center">
+            <div className="container">
                 <div className="row row-cols-2 row-cols-lg-3 g-lg-3">
                     {currentPosts.map(item => {
                         return (
-                            <div className="col p-3" key={item.model}>
+                            <div className="col p-3 d-flex justify-content-evenly m-0" key={item.model}>
                                 <CarsItem data={item} />
                             </div>
                         );

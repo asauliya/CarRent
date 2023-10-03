@@ -8,9 +8,9 @@ function App() {
 
   return (
     <CarState>
-      <div>
         <Navbar />
-        <Routes>
+      <div style={{marginTop:"10vh"}}>
+        <Routes >
           <Route index element={<Home/>} />
           <Route exact path="page/:pageNumber" element={<Car />} />
         </Routes>

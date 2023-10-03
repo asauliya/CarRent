@@ -16,7 +16,10 @@ function CarState(props) {
 	const totalPosts = posts.length;
 	// search
 	const search = (keyword) =>{
-		setPosts(data.filter((item) => item.model.includes(keyword)));
+		const newData = data.filter((item) => item.model.toLowerCase().includes(keyword));
+    // console.log(newData)
+    setPosts(newData)
+    navigate(`page/1`)
 	}
   // Change page
   const paginate = (number) => {

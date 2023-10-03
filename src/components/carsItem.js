@@ -10,8 +10,8 @@ function CarsItem(props) {
   }
     const data = props.data;
   return (
-    <div className="card" style={{width: "22rem"}}>
-        <img src={image} alt="..." style={{padding:"0.5rem", borderRadius:"12px"}}/>
+    <div className="card shadow" style={{width: "22rem", borderRadius:"15px", background:"#f2f6fc"}}>
+        <img src={image} alt="..." style={{padding:"0.5rem", borderRadius:"16px"}}/>
         <div className="card-body" style={{paddingTop:"0"}}>
             <div className="container p-0">
                 <div className="row">
@@ -34,7 +34,7 @@ function CarsItem(props) {
                         <h5 >{data.rental_price}₹/<span style={{fontSize:"15px"}}>month</span></h5>
                     </div>
                     <div className="col text-end">
-                        <a href="/" className="btn btn-primary btn-sm">Rent Now</a>
+                        <span className="btn btn-primary btn-sm">Rent Now</span>
                     </div>
                 </div>
             </div>
