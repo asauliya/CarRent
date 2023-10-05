@@ -18,6 +18,7 @@ function Car() {
     return (
         <>
             <div className="container">
+            {(currentPosts.length == 0) && <h3>Nothing to Show</h3>}
                 <div className="row row-cols-2 row-cols-lg-3 g-lg-3">
                     {currentPosts.map(item => {
                         return (
